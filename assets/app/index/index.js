@@ -657,5 +657,8 @@ $(function () {
             $scope.loadHistoryTest();
         }
     });
-
+    $(document).ready(function () {
+                              $('#hide').removeAttr('id');
+                              $('div#hide').removeAttr('id');
+                              });
 })();
