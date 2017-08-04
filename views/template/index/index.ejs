@@ -1,9 +1,17 @@
 <% layout('../common/index-layout.ejs') -%>
-<section id="index-gamebox-section">
+<style>
+	.abc{
+		/* padding-top: 70px;
+		padding-bottom: 40px; */
+		background-color: rgb(72, 4, 129);
+    	background-image: linear-gradient(to left top, rgb(255, 116, 0) 0%, rgb(255, 95, 54) 25.75%, rgb(255, 91, 63) 30.28%, rgb(255, 42, 186) 89.19%, rgb(255, 42, 187) 89.22%, rgb(255, 33, 209) 100%);
+	}
+	</style>
+<section id="index-gamebox-section" class="abc">
 	<div ng-if="isWaitingRank">
 		<div class="waiting-rank-box">Waiting a rank... <i class="cancel-rank-btn fa fa-2x fa-times pull-right" ng-click="cancelRank()"></i></div>
 	</div>
-	<div class="container">
+	<div class="container" style="padding-top:50px">
 		<div class="row margin-bt-20">
 			<div class="col-sm-6 game-box-wraper" href="#practice-box-modal" data-toggle="modal">
 				<div class="game-box-header-wrapper header-wrapper-practice">

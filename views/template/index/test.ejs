@@ -26,7 +26,7 @@
 					<label class="label label-danger text-uppercase">{{countDown}}</label>
 				</h2>
 				<hr class="hr hr-primary" />
-				<div class="question-game-wraper" ng-bind-html="q.content"></div>
+				<div style="word-wrap: break-word;" class="question-game-wraper" ng-bind-html="q.content"></div>
 				<div class="row margin-bt-20">
 					<div ng-repeat="a in q.answer" class="col-xs-12 col-sm-6">
 						<div class="answer-game-item no-radius" 
@@ -48,7 +48,7 @@
 			</div>
 			<div ng-class="{'man-che':(manche)}"></div>
 		</div>
-		<div>
+		<div style = "padding-left:25px !important;">
 			<span ng-repeat="q in questions">
 				<button class="btn btn-default index-question-box" ng-class="{'box-choice':(q.answer[0].isNoChoice!=undefined),'box-choice-forcus animated bounce':($index==testSkip)}" ng-click="forcusQuestion($index)">{{$index + 1}}</button>
 			</span>
@@ -222,7 +222,7 @@
 	    border-radius: 3px;
 	}
 	.index-question-box{
-		width: 40px;
+		width: 51px;
 		margin-bottom: 5px;
 	}
 	.box-choice{
