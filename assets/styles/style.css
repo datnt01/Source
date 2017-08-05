@@ -819,7 +819,7 @@ html {
   #pratice-section{
     padding-top: 80px;  
     background: #2B3D52;
-    height: 100%;
+    min-height: 100%;
     color: #fff;
   }
   .question-game-all-wrap{
