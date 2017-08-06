@@ -1,10 +1,10 @@
 <% layout('../common/index-layout.ejs') -%>
 <section id="bookmark-session" ng-controller="bookmarkCtr">
 	<div class="container">
-		<div ng-if="bookmarks.length">
+		<div id="hide-1" ng-show="bookmarks.length">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 bookmark-item-wrapper"  ng-repeat="b in bookmarks">
-					<div class="white-text bookmark-item" uib-popover-template="'bookmark-detail-popup'" popover-title="Explain & Answer" popover-placement="bottom" popover-trigger="'outsideClick'">
+					<div  class="white-text bookmark-item" uib-popover-template="'bookmark-detail-popup'" popover-title="Explain & Answer" popover-placement="bottom" popover-trigger="'outsideClick'">
 						<div class="question-game-wraper">
 							<p ng-bind-html="b.questions.content"></p>
 						</div>
@@ -39,7 +39,7 @@
 				<label class="label label-primary">{{paggingBookmark.current + 1}}/{{paggingBookmark.pages}}</label>
 			</h4>
 		</div>
-		<div ng-if="!bookmarks.length">
+		<div id="hide-1" ng-show="!bookmarks.length">
 			<div class="text-center white-text">Not have any bookmark</div>
 		</div>
 	</div>
