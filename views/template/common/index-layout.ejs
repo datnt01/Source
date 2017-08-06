@@ -11,7 +11,7 @@
     <%- partial ('../common/index-game-modal.ejs') %>
     <%- partial ('../common/index-report-modal.ejs') %>
     
-	<div id="hide" class="accept-play-with-friend-wrapper" ng-show="invite.sender.length>0">
+	<div id="hide-1" class="accept-play-with-friend-wrapper" ng-show="invite.sender.length>0">
 		<div class="accept-play-with-friend" ng-repeat="u in invite.sender">
 			<div >{{u.displayName}}&ensp;<i class="fa fa-gamepad" aria-hidden="true">&ensp;</i> want to play with you</div>
 			<div>

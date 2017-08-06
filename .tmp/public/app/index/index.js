@@ -12,9 +12,12 @@ $(function () {
 			$(this).remove(); 
 		});
 	}, 5000);
+    var i=0;
     $(".menu-friend-toggle").click(function(e) {
         e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+        if(i==0){$("#wrapper").addClass("toggled"); i++;} 
+        else{$("#wrapper").removeClass("toggled"); i--;}
+        
     });
     var friendIdSearch;
     $('#search-friend-modal').on('hidden.bs.modal', function () {
@@ -658,7 +661,7 @@ $(function () {
         }
     });
     $(document).ready(function () {
-                              $('#hide').removeAttr('id');
-                              $('div#hide').removeAttr('id');
+                              $('#hide-1').removeAttr('id');
+                              $('div#hide-1').removeAttr('id');
                               });
 })();
