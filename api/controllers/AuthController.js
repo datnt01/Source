@@ -52,7 +52,6 @@ module.exports = {
 			});
 		})(req, res);
 	},
-
 	admin: function(req, res){
 		passport.authenticate('local', { successRedirect: '/admin',failureRedirect: '/admin/login', failureFlash: true},function(err, user, info){
 		 	if(err){

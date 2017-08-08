@@ -13,7 +13,7 @@ var verifyMail ={
 
 }
 module.exports = {
-	sendLink: function(user, cb) {
+	sendVerify: function(user, cb) {
 		var hash = cryptr.encrypt(user.id + '|' + user.email + '|' + user.updatedAt);
 		verifyMail.mailOptions.to = user.email;
 		verifyMail.render = {
@@ -34,7 +34,3 @@ module.exports = {
 		 }
 	}
 };
- 
-// var encryptedString = cryptr.encrypt('bacon'),
-//     decryptedString = cryptr.decrypt(encryptedString);
-

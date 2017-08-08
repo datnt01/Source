@@ -90,7 +90,7 @@ module.exports = {
 		if(!req.body.email) return res.json({message:'email_not_found'});
 		User.findOne({email: req.body.email}, function(err, user){
 			if(!user)	return res.json({message:'email_not_found'});
-			require('../services/forgotPasswordEmail.js').sendLink(user, function(err){
+			require('../services/forgotPasswordEmail.js').sendVerify(user, function(err){
 				if(err){
 					return res.json({message:'have_error'});
 				}else{
@@ -120,7 +120,6 @@ module.exports = {
 		/*CHECK*/
 		require('../services/forgotPasswordEmail.js').verifyCode(req.body.code, function(id, updatedAt){
 			User.findOne({id: parseInt(id)}, function(err, user){
-
 				if(err) return res.json({message:'have_error'});
 				if(!user) return res.json({message:'email_not_found'});
 				if(user.updatedAt != updatedAt)	return res.json({message:'have_error'});
@@ -132,7 +131,6 @@ module.exports = {
 						return res.json({message:'success'});
 					});	
 				})
-
 			})
 		});
 
@@ -212,7 +210,6 @@ module.exports = {
 			return res.json({message:'success',top10:top10});
 		});
 	},
-
 	//BOOKMARK
 	createBookMark: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});
