@@ -6,16 +6,16 @@
                 Start Bootstrap
             </a>
         </li>
-        <li>
+        <li style="padding-top: 10px;">
             <button class="btn btn-primary" data-toggle="modal" data-target="#search-friend-modal"><i style="display:initial" class="fa fa-search"></i></button>
             <button class="btn btn-danger menu-friend-toggle"><i class="fa fa-times" aria-hidden="true"></i></button>
         </li>
         <li>
-            <strong>Danh ba</strong>
+            <strong>Friend List</strong>
         </li>
         <li ng-repeat="f in listFriendOnline" uib-popover-template="'popoFriendOnline'" popover-append-to-body="true" popover-title="{{f.displayName}}" popover-placement="bottom" popover-trigger="'outsideClick'">
             <div class="list-friend-row">
-                <img class="online-icon" src="/images/online.png" width="5" height="5">
+                <img class="online-icon" src="/images/online.png" width="10px" height="10px">
                 <img src="{{f.picture}}" width="30" height="30">
                 <span>{{f.displayName}}</span>
             </div>

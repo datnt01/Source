@@ -1372,11 +1372,11 @@ body {
   }
 
   #page-content-wrapper {
-      position: relative;
+      /*position: relative;*/
   }
 
   #wrapper.toggled #page-content-wrapper {
-      position: relative;
+      /*position: relative;*/
       margin-right: 0;
   }
   .left-container{width:18%;float: left;transition:0.5s;}
