@@ -32,10 +32,6 @@ module.exports = {
 		 }catch(e){
 		 	cb()
 		 }
-		 //console.log(decryptedString);
 	}
 };
- 
-// var encryptedString = cryptr.encrypt('bacon'),
-//     decryptedString = cryptr.decrypt(encryptedString);
 

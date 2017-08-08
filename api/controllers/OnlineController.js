@@ -111,9 +111,7 @@ module.exports = {
 	    	res.json(responseObj);
 	    }).catch(function(err){
 	    	return res.json({message:'have_err'});
-	    });
-
-	    
+	    });    
 	},
 };
 

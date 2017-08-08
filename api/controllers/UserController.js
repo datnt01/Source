@@ -155,7 +155,7 @@ module.exports = {
 			});
 		});
 	},
-	edit: function(req, res){
+	editProfile: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});
 		if(!req.body.displayName && (!req.body.fileName || !req.body.imageData)) return res.json({message:"have_error"});
 		// check displayName

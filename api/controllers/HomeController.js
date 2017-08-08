@@ -14,7 +14,7 @@ module.exports = {
 			res.view('template/index/index.ejs',{user:user});
 		});
 	},
-	me: function(req, res){
+	profile: function(req, res){
 		User.query(query.myProfile(req.session.passport.user), [], function(err, data){
 			data[0].level = countLevel(data[0].level);
 			res.view('template/index/profile.ejs',{user:data[0]});

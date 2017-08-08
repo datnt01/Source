@@ -25,7 +25,7 @@
 		showhideAppend(['#displayName_text','#displayName_btn_edit'],['#displayName_edit']);
 	});
 	$('#displayName_btn_v').click(function(){
-		$.post("/user/edit",{displayName:$('#displayName_input').val().trim()}, function(data, status){
+		$.post("/user/editProfile",{displayName:$('#displayName_input').val().trim()}, function(data, status){
 			switch(data.message) {
                 case 'have_error':
                     utils.alert({
@@ -84,7 +84,7 @@
 	    ctx.drawImage(img,dataImg.x,dataImg.y,dataImg.width,dataImg.height,0,0,320,320);
 	    var imageData = c.toDataURL('image/png', 1.0);
 	    var fileName = 'picture.jpg';
-	    $.post("/user/edit",
+	    $.post("/user/editProfile",
 		    {
 		        fileName: fileName,
 		        imageData: imageData

@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': 'HomeController.index',
 
-  '/me':'HomeController.me',
+  '/profile':'HomeController.profile',
 
   '/login': 'HomeController.login',
 
@@ -52,7 +52,7 @@ module.exports.routes = {
 
   'POST /user': 'UserController.registerUser',
 
-  'POST /user/edit': 'UserController.edit',
+  'POST /user/editProfile': 'UserController.editProfile',
 
   'POST /user/reverify': 'UserController.reVerifyUser',
 
@@ -99,7 +99,6 @@ module.exports.routes = {
 
   'POST /test/history':'TestController.history',
   
-
   'POST /relationship/addfriend': 'RelationshipController.addFriend',
 
   'POST /relationship/searchfriend': 'RelationshipController.searchFriend',
@@ -114,7 +113,6 @@ module.exports.routes = {
 
   'POST /question/getanswercorrect' :'QuestionController.getAnswerCorrect',
 
-
   '/play': 'HomeController.play',
 
   'POST /game/rank/register':'GameController.rankRegister',
@@ -125,22 +123,11 @@ module.exports.routes = {
 
   'POST /game/rank/joingame':'GameController.rankJoinGame',
 
-
-  // 'POST /game/2vs2':'GameController._2vs2',
-
-  // 'POST /game/2vs2answer':'GameController._2vs2_Answer',
-
-  // 'POST /game/2vs2init':'GameController._2vs2_Init',
-
-
   'POST /game/playgame':'GameController.game',
 
   'POST /game/gameanswer':'GameController.gameAnswer',
 
   'POST /game/gameinit':'GameController.gameInit',
-
-
-
 
   'POST /game/playwithfriendrequest':'GameController.playWithFriendRequest',
 
@@ -150,11 +137,7 @@ module.exports.routes = {
 
   'POST /game/playWithfriendjoin':'GameController.playWithFriendJoinGame',
 
-
   'POST /game/history':'GameController.history',
-
-
-
 
   'GET /admin/login': 'HomeController.adminLogin',
 
