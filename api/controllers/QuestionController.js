@@ -47,7 +47,6 @@ module.exports = {
 			res.json({message:'have_err', err:err});
 		})
 	},
-
 	list: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
 		if(req.session.passport.role != 'admin') return res.json({message:'have_err'});
