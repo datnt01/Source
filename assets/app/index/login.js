@@ -111,9 +111,8 @@ $(function () {
             lastScrollTop = st;
         }
     };
-    $(window).on('scroll', function () {
-        $('#navbar-login').scrollingMenu();
-    });
+    
+    $('#navbar-login').scrollingMenu();
 
     $('.change-to-register').click(function () {
         $('.register-panel').removeClass('animated');
