@@ -297,7 +297,7 @@ $(function () {
         };
         $scope.top10 = [];
         $scope.loadTop10 = function(){
-            $http.post("/user/top10",{},{}).then(function(res){
+            $http.post("/rank/top10",{},{}).then(function(res){
                 if(res.data.message == 'success'){
                     $scope.top10 = res.data.top10;
                 }

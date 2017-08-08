@@ -44,16 +44,6 @@ module.exports = {
 	    	}
 	    });
 	},
-	updateResolve: function(req, res){
-		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
-		if(req.session.passport.role != 'admin') return res.json({message:'have_err'});
-		if(typeof(req.body.resolve) != 'boolean') return res.json({message:'have_err'});
-		Report.update({id:req.body.id},{resolve:req.body.resolve})
-		.exec(function(err, report){
-			if(err) return res.json({message:'have_err'});
-			return res.json({message:'success'});
-		});
-	},
 	listReport: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
 		if(req.session.passport.role != 'admin') return res.json({message:'have_err'});
@@ -95,6 +85,16 @@ module.exports = {
 		}).catch(function(err){
 			return res.json({message:'have_err'});
 		})
+	},
+	updateResolve: function(req, res){
+		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
+		if(req.session.passport.role != 'admin') return res.json({message:'have_err'});
+		if(typeof(req.body.resolve) != 'boolean') return res.json({message:'have_err'});
+		Report.update({id:req.body.id},{resolve:req.body.resolve})
+		.exec(function(err, report){
+			if(err) return res.json({message:'have_err'});
+			return res.json({message:'success'});
+		});
 	}
 };
 

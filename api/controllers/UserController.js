@@ -200,16 +200,7 @@ module.exports = {
 		    });
 		}
 	},
-	top10: function(req, res){
-		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});
-		User.query(query.top10Rank(), [], function(err, top10){
-			if(err) return res.json({message:"have_error"});
-			for(var i = 0; i < top10.length; i ++){
-				top10[i].level = countLevel(top10[i].level);
-			}
-			return res.json({message:'success',top10:top10});
-		});
-	},
+	
 	//BOOKMARK
 	createBookMark: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});
@@ -250,36 +241,6 @@ module.exports = {
 	    }).catch(function(err){
 	    	if(err == 'already_bookmark') return res.json({message:'already_bookmark'});
 	    	return res.json({message:'have_err'});
-	    })
-	},
-	deleteBookMark:function(req, res){
-		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});
-		let checkQuestions = function(){
-	    	return new Promise(function(fullfill, reject){
-	    		Question.findOne({id: req.body.questionId}).exec(function(err, ques){
-	    			if(err) return reject(err);
-	    			if(!ques) return reject('question_not_found');
-	    			return fullfill();
-	    		})
-	    	})
-	    }
-	    let deleteQuestions = function(){
-	    	return new Promise(function(fullfill, reject){
-	    		User.findOne({id: req.session.passport.user}).exec(function(err, user){
-					if(err) return reject(err);
-					if(!user) return reject('user_not_found');
-					user.bookmark_questions.remove(req.body.questionId);
-					user.save(function(err){
-						if(err) return reject(err);
-	    				return fullfill();
-					});
-				})
-	    	})
-	    }
-		checkQuestions().then(deleteQuestions).then(function(){
-	    	res.json({message:'success'});
-	    }).catch(function(err){
-	    	res.json({message:'have_err'});
 	    })
 	},
 	listBookMark: function(req, res){
@@ -339,6 +300,36 @@ module.exports = {
 	    	return res.json({message:'success', questions: questions, pages:pages});
 	    })
 		
+	},
+	deleteBookMark:function(req, res){
+		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});
+		let checkQuestions = function(){
+	    	return new Promise(function(fullfill, reject){
+	    		Question.findOne({id: req.body.questionId}).exec(function(err, ques){
+	    			if(err) return reject(err);
+	    			if(!ques) return reject('question_not_found');
+	    			return fullfill();
+	    		})
+	    	})
+	    }
+	    let deleteQuestions = function(){
+	    	return new Promise(function(fullfill, reject){
+	    		User.findOne({id: req.session.passport.user}).exec(function(err, user){
+					if(err) return reject(err);
+					if(!user) return reject('user_not_found');
+					user.bookmark_questions.remove(req.body.questionId);
+					user.save(function(err){
+						if(err) return reject(err);
+	    				return fullfill();
+					});
+				})
+	    	})
+	    }
+		checkQuestions().then(deleteQuestions).then(function(){
+	    	res.json({message:'success'});
+	    }).catch(function(err){
+	    	res.json({message:'have_err'});
+	    })
 	}
 };
 

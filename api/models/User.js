@@ -52,7 +52,7 @@ module.exports = {
     },
   	jlpt: {
   		model: 'jlpt',
-      defaultsTo:'NOT'
+      defaultsTo:'None'
   	},
     picture:{
       type: 'string'

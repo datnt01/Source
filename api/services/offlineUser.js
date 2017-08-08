@@ -6,7 +6,7 @@ module.exports = {
 		if(!require('../services/checkSession.js')(req)) return cb();
 		Online.destroy({socketId:socket.id}).exec(function (err) {
 			var listIdFriend = [];
-			let boardCastImOffline = function(){
+			let broadCastImOffline = function(){
 		    	return new Promise(function(fullfill, reject){
 		    		User.query(query.listFriendId(session.passport.user), [], function(err, data){
 			    		if(err) return reject(err);
@@ -61,7 +61,7 @@ module.exports = {
 		    		})
 		    	})
 		    }
-		    boardCastImOffline().then(broadcastFriendGameRequest).then(broadcastRank).then(function(){
+		    broadCastImOffline().then(broadcastFriendGameRequest).then(broadcastRank).then(function(){
 		    	cb();
 		    }).catch(function(err){
 				cb();
@@ -71,7 +71,7 @@ module.exports = {
 	logout: function(req, cb){
 		Online.destroy({userId:req.session.passport.user}).exec(function (err) {
 			var listIdFriend = [];
-			let boardCastImOffline = function(){
+			let broadCastImOffline = function(){
 		    	return new Promise(function(fullfill, reject){
 		    		User.query(query.listFriendId(req.session.passport.user), [], function(err, data){
 			    		if(err) return reject(err);
@@ -111,7 +111,7 @@ module.exports = {
 		    		return fullfill();
 		    	})
 		    }
-		    boardCastImOffline().then(broadcastFriendGameRequest).then(broadcastRank).then(function(){
+		    broadCastImOffline().then(broadcastFriendGameRequest).then(broadcastRank).then(function(){
 		    	cb();
 		    }).catch(function(err){
 				cb();

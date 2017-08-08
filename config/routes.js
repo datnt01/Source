@@ -62,7 +62,7 @@ module.exports.routes = {
 
   'POST /user/changepasswordwithsession': 'UserController.changepasswordWithSession',
 
-  'POST /user/top10': 'UserController.top10',
+  'POST /rank/top10': 'GameController.top10',
 
   '/forgot': 'UserController.forgotPassword',
 

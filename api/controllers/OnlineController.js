@@ -59,7 +59,7 @@ module.exports = {
 	    	})
 	    }
 
-	    let boardCastImOnline = function(){
+	    let broadCastImOnline = function(){
 	    	return new Promise(function(fullfill, reject){
 	    		if(listIdFriend.length == 0) return fullfill();
 	    		User.query(query.listSocketFriend(listIdFriend), [], function(err, data){
@@ -99,7 +99,7 @@ module.exports = {
 	    	})
 	    }
 
-	    makeUserOnline().then(getUserOnline).then(getUserOffline).then(boardCastImOnline)
+	    makeUserOnline().then(getUserOnline).then(getUserOffline).then(broadCastImOnline)
 	    .then(friendsRequest)
 	    .then(function(){
 	    	responseObj = {

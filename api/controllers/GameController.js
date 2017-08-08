@@ -742,6 +742,16 @@ module.exports = {
 
 	    });
 	},
+	top10: function(req, res){
+		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});
+		User.query(query.top10Rank(), [], function(err, top10){
+			if(err) return res.json({message:"have_error"});
+			for(var i = 0; i < top10.length; i ++){
+				top10[i].level = countLevel(top10[i].level);
+			}
+			return res.json({message:'success',top10:top10});
+		});
+	},
 	history: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
 		var type = req.body.type;
