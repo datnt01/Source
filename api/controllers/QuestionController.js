@@ -219,7 +219,6 @@ module.exports = {
 			res.json({message:'have_err', err: err});
 		});
 	},
-
 	randomARecord: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
 		var type = req.body.type;

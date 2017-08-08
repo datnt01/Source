@@ -48,8 +48,7 @@ module.exports = {
     			});
 			});
 		})
-	},
-	
+	},	
 	searchFriend: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:"have_error"});
 		var friendId = req.body.friendId

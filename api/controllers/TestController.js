@@ -250,7 +250,6 @@ module.exports = {
 	    	return res.json({message:'have_error'});
 	    })
 	},
-
 	history: function(req, res){
 		if(!require('../services/checkSession.js')(req)) return res.json({message:'have_err'});
 		var limit = req.body.limit;
